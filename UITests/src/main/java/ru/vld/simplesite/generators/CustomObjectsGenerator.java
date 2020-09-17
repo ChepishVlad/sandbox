@@ -1,11 +1,11 @@
 package ru.vld.simplesite.generators;
 
+import com.github.javafaker.Faker;
 import ru.vld.simplesite.model.Contact;
 import ru.vld.simplesite.model.Group;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 
 import static ru.vld.simplesite.generators.DataGenerator.*;
 
@@ -16,24 +16,25 @@ public class CustomObjectsGenerator {
     }
 
     public static Contact generateRandomContact(boolean isPhotoNeeded){
+        Faker faker = new Faker(new Locale("ru"));
         Contact contact = new Contact();
-        contact.setFirstName(generateString(6))
-                .setMiddleName(generateString(7))
-                .setLastName(generateString(8))
-                .setNickName(generateString(3))
-                .setCompany(generateString(12))
-                .setAddress(generateString(15))
-                .setMobilePhone("+7" + geniratorNumeric(10))
-                .setHomePhone("+8652" + geniratorNumeric(7))
-                .setWorkPhone("+2341" + geniratorNumeric(7))
-                .setFax("+1246" + geniratorNumeric(7))
+        contact.setFirstName(firstName())
+                .setMiddleName(middleName())
+                .setLastName(lastName())
+                .setNickName(userName())
+                .setCompany(campanyName())
+                .setAddress(faker.address().streetAddress())
+                .setMobilePhone(faker.phoneNumber().phoneNumber())
+                .setHomePhone(faker.phoneNumber().phoneNumber())
+                .setWorkPhone(faker.phoneNumber().phoneNumber())
+                .setFax(faker.phoneNumber().phoneNumber())
                 .setFirstEmail(generateEmail())
                 .setSecondEmail(generateEmail())
                 .setThirdEmail(generateEmail())
                 .setHomepage(generateString(21))
-                .setSecondAddress(generateString(15))
-                .setSecondHome("+7" + geniratorNumeric(10))
-                .setSecondNotes(generateString(45));
+                .setSecondAddress(faker.address().secondaryAddress())
+                .setSecondHome(faker.phoneNumber().cellPhone())
+                .setSecondNotes(faker.lorem().paragraph());
         if (isPhotoNeeded){
             contact.setPhoto(new File("src/test/resources/photo.jpg"));
         }
@@ -41,17 +42,6 @@ public class CustomObjectsGenerator {
     }
 
     public static Group generateRandomGroup(){
-        return  new Group().setGroupName(generateString(7))
-                .setGroupHeader(generateString(6))
-                .setGroupFooter(generateString(5));
+        return new Group(title(), title(), title());
     }
-
-    public static List<Contact> generateListRandomContacts(int numberContatsInList){
-        List<Contact> contactList = new ArrayList<>();
-        for (int i = 0; i < numberContatsInList; i++){
-            contactList.add(generateRandomContact());
-        }
-        return contactList;
-    }
-
 }

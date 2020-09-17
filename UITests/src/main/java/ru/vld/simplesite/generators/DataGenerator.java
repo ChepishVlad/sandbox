@@ -1,8 +1,38 @@
 package ru.vld.simplesite.generators;
 
+import com.github.javafaker.Faker;
+
+import java.util.Locale;
 import java.util.Random;
 
 public class DataGenerator {
+
+    protected static final Faker FAKER = new Faker(new Locale("ru"));
+
+    public static String firstName(){
+        return FAKER.name().firstName();
+    }
+
+    public static String middleName(){
+        return FAKER.name().firstName();
+    }
+
+    public static String lastName(){
+        return FAKER.name().lastName();
+    }
+
+    public static String title(){
+        return FAKER.name().title();
+    }
+
+    public static String userName(){
+        return FAKER.name().username();
+    }
+
+    public static String campanyName(){
+        return FAKER.company().name();
+    }
+
 
     public static String generateString(int length) {
         char[] chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();

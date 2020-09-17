@@ -11,8 +11,10 @@ public class Group {
 
     public Group(){}
 
-    public Group(String name){
+    public Group(String name, String header, String footer){
         this.groupName = name;
+        this.groupHeader = header;
+        this.groupFooter = footer;
     }
 
     public Group(String name, int id){
