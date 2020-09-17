@@ -60,11 +60,6 @@ public class MainPage {
         return contacts;
     }
 
-//    public AddContactPage pressEditContact(Contact contact) {
-//        $("a[href='edit.php?id=" + contact.getId() + "']").click();
-//        return new AddContactPage();
-//    }
-
     public int countContacts(){
         return contactLineInTable.size();
     }
@@ -82,8 +77,8 @@ public class MainPage {
         switchTo().alert().accept();
     }
 
-//    public AddContactPage pressEditFirstContactBtn() {
-//        editContactButton.click();
-//        return new AddContactPage();
-//    }
+    public AddContactPage pressEditFirstContactBtn() {
+        editContactButton.click();
+        return new AddContactPage();
+    }
 }

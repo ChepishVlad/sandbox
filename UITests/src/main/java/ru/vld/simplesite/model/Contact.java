@@ -230,31 +230,15 @@ public class Contact {
         Contact contact = (Contact) o;
         return id == contact.id &&
                 Objects.equals(firstName, contact.firstName) &&
-                Objects.equals(middleName, contact.middleName) &&
                 Objects.equals(lastName, contact.lastName) &&
-                Objects.equals(nickName, contact.nickName) &&
-                Objects.equals(company, contact.company) &&
                 Objects.equals(address, contact.address) &&
-                Objects.equals(homePhone, contact.homePhone) &&
-                Objects.equals(mobilePhone, contact.mobilePhone) &&
-                Objects.equals(workPhone, contact.workPhone) &&
-                Objects.equals(fax, contact.fax) &&
-                Objects.equals(firstEmail, contact.firstEmail) &&
-                Objects.equals(secondEmail, contact.secondEmail) &&
-                Objects.equals(thirdEmail, contact.thirdEmail) &&
-                Objects.equals(homepage, contact.homepage) &&
-                Objects.equals(secondAddress, contact.secondAddress) &&
-                Objects.equals(secondHome, contact.secondHome) &&
-                Objects.equals(secondNotes, contact.secondNotes) &&
-                Objects.equals(group, contact.group) &&
                 Objects.equals(allEmails, contact.allEmails) &&
-                Objects.equals(allPhones, contact.allPhones) &&
-                Objects.equals(photo, contact.photo);
+                Objects.equals(allPhones, contact.allPhones);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, middleName, lastName, nickName, company, address, homePhone, mobilePhone, workPhone, fax, firstEmail, secondEmail, thirdEmail, homepage, secondAddress, secondHome, secondNotes, group, allEmails, allPhones, id, photo);
+        return Objects.hash(firstName, lastName, address, allEmails, allPhones, id);
     }
 
     @Override

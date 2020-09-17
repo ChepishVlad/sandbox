@@ -29,9 +29,9 @@ public class Navigation {
         return new MainPage();
     }
 
-//    public AddContactPage openAddContactPage(){
-//        addContactUpperMenuLink.click();
-//        return new AddContactPage();
-//    }
+    public AddContactPage openAddContactPage(){
+        addContactUpperMenuLink.click();
+        return new AddContactPage();
+    }
 
 }
