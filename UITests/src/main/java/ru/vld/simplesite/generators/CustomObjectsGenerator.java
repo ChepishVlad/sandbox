@@ -7,7 +7,8 @@ import ru.vld.simplesite.model.Group;
 import java.io.File;
 import java.util.Locale;
 
-import static ru.vld.simplesite.generators.DataGenerator.*;
+import static ru.vld.simplesite.generators.DataGenerator.generateEmail;
+import static ru.vld.simplesite.generators.DataGenerator.generateString;
 
 public class CustomObjectsGenerator {
 
@@ -18,11 +19,11 @@ public class CustomObjectsGenerator {
     public static Contact generateRandomContact(boolean isPhotoNeeded){
         Faker faker = new Faker(new Locale("ru"));
         Contact contact = new Contact();
-        contact.setFirstName(firstName())
-                .setMiddleName(middleName())
-                .setLastName(lastName())
-                .setNickName(userName())
-                .setCompany(campanyName())
+        contact.setFirstName(faker.name().firstName())
+                .setMiddleName(faker.name().firstName())
+                .setLastName(faker.name().lastName())
+                .setNickName(faker.name().username())
+                .setCompany(faker.company().name())
                 .setAddress(faker.address().streetAddress())
                 .setMobilePhone(faker.phoneNumber().phoneNumber())
                 .setHomePhone(faker.phoneNumber().phoneNumber())
@@ -42,6 +43,10 @@ public class CustomObjectsGenerator {
     }
 
     public static Group generateRandomGroup(){
-        return new Group(title(), title(), title());
+        Faker faker = new Faker(new Locale("ru"));
+        return new Group(
+                faker.name().title(),
+                faker.name().title(),
+                faker.name().title());
     }
 }
