@@ -1,5 +1,6 @@
 package ru.vld.simplesite.tests.group_tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
 import ru.vld.simplesite.model.Group;
 
@@ -9,6 +10,7 @@ import static ru.vld.simplesite.generators.CustomObjectsGenerator.generateRandom
 public class GroupCreationTest extends BaseGroupsTest{
 
     @Test
+    @Description("Тест создающий группу")
     public void testGroupCreation(){
         groupsPage = navigation.openGroupsPage();
         int groupsBefore = groupsPage.getGroupsList().size();

@@ -1,5 +1,6 @@
 package ru.vld.simplesite.tests.contact_tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.vld.simplesite.model.Contact;
@@ -36,6 +37,7 @@ public class ContactDeletionTest extends BaseContactTest {
     }
 
     @Test()
+    @Description("Тестирование удаления контакта")
     public void testContactDeletion() {
         int contactsNumberBefore = mainPage.countContacts();
         mainPage.selectFirstContact();

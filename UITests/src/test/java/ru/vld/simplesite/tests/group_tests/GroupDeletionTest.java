@@ -1,6 +1,6 @@
 package ru.vld.simplesite.tests.group_tests;
 
-import com.sun.org.glassfish.gmbal.Description;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.vld.simplesite.model.Group;

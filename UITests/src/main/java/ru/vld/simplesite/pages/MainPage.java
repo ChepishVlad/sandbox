@@ -2,6 +2,7 @@ package ru.vld.simplesite.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ru.vld.simplesite.model.Contact;
 
@@ -60,23 +61,28 @@ public class MainPage {
         return contacts;
     }
 
+    @Step("Посчитать количество отображающихся контактов")
     public int countContacts(){
         return contactLineInTable.size();
     }
 
+    @Step("Отметить первый чекбокс")
     public MainPage selectFirstContact() {
         contactCheckboxInput.click();
         return this;
     }
 
+    @Step("Нажать на кнопку 'Удаления'")
     public void pressDeleteBtn() {
         deleteButton.click();
     }
 
+    @Step("Подтверждение удаления")
     public void confirmDeletion() {
         switchTo().alert().accept();
     }
 
+    @Step("Нажать на кнопку редактирования первого котакта")
     public AddContactPage pressEditFirstContactBtn() {
         editContactButton.click();
         return new AddContactPage();

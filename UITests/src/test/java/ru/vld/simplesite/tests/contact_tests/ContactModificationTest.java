@@ -1,5 +1,6 @@
 package ru.vld.simplesite.tests.contact_tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.vld.simplesite.model.Contact;
@@ -39,6 +40,7 @@ public class ContactModificationTest extends BaseContactTest{
     }
 
     @Test()
+    @Description("Тестирование модификации контакта")
     public void testContactModification() {
         List<Contact> contactsBefore = mainPage.getContactList();
         Contact contact = generateRandomContact(true);

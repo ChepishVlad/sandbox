@@ -1,5 +1,6 @@
 package ru.vld.simplesite.tests.contact_tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,7 +36,7 @@ public class ContactCreationTest extends BaseContactTest {
     }
 
     @Test()
-    @DisplayName("Тестирование создания контакта")
+    @Description("Тестирование создания контакта")
     public void testContactCreation() {
         List<Contact> contactsBefore = mainPage.getContactList();
         File photo = new File("src/test/resources/photo.jpg");

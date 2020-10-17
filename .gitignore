@@ -6,3 +6,4 @@ out/
 *.iml
 *.ini
 target/
+/UITests/allure-results/

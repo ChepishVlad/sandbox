@@ -2,6 +2,7 @@ package ru.vld.simplesite.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import ru.vld.simplesite.model.Group;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class GroupsPage extends BasePage{
         groupsPageHeader.waitUntil(visible.because("Страница групп не загрузилась"), 500);
     }
 
+    @Step("Получить список групп")
     public List<Group> getGroupsList() {
         return groupInList.stream().map(s -> new Group(
                 s.text(),
@@ -33,20 +35,23 @@ public class GroupsPage extends BasePage{
                 .collect(Collectors.toList());
     }
 
+    @Step("Выбрать случайную группу из списка")
     public Group getRandomGroup(List<Group> groups){
         return groups.get((int) (Math.random() * groups.size()));
     }
 
-
+    @Step("Нажать на кнопку добавиления новой группы")
     public AddGroupPage pressAddNewGroupBtn(){
         createGroupButtonUpper.click();
         return new AddGroupPage();
     }
 
+    @Step("Получить название первой групапы")
     public String getFirstGroupName() {
         return firstGroupInList.text();
     }
 
+    @Step("Удалить группу")
     public GroupsPage deleteGroup(Group group) {
         selectGroupById(group.getGroupId());
         pressDeleteGroupBtn();
@@ -54,11 +59,13 @@ public class GroupsPage extends BasePage{
         return this;
     }
 
+    @Step("Выбрать группу {id} по id")
     public GroupsPage selectGroupById(int id) {
         $(String.format(groupById, id)).click();
         return this;
     }
 
+    @Step("Нажать на кнопку удаления группы")
     public GroupsPage pressDeleteGroupBtn() {
         deleteGroupButtonUpper.click();
         return this;
@@ -70,9 +77,9 @@ public class GroupsPage extends BasePage{
         return this;
     }
 
+    @Step("Нажать на кноку редактирования группы")
     public AddGroupPage pressEditGroupBtn(){
         editGroupButtonUpper.click();
         return new AddGroupPage();
     }
-
 }
