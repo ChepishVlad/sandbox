@@ -67,9 +67,8 @@ public class MainPage {
     }
 
     @Step("Отметить первый чекбокс")
-    public MainPage selectFirstContact() {
+    public void selectFirstContact() {
         contactCheckboxInput.click();
-        return this;
     }
 
     @Step("Нажать на кнопку 'Удаления'")

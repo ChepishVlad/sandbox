@@ -1,6 +1,7 @@
 package ru.vld.simplesite.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,19 +17,19 @@ public class LoginPage {
                 500);
     }
 
-    public LoginPage typeLogin(String value){
+    @Step("Ввести в поле логин: '{value}'")
+    public void typeLogin(String value){
         loginInput.sendKeys(value);
-        return this;
     }
 
-    public LoginPage typePassword(String value){
+    @Step("Ввести в поле пароль: '{value}'")
+    public void typePassword(String value){
         passInput.sendKeys(value);
-        return this;
     }
 
-    public LoginPage enterSubmitBtn(){
+    @Step("Нажать на кнопку  ")
+    public void enterSubmitBtn(){
         submitBtn.click();
-        return this;
     }
 
     public MainPage login(String login, String pass){
